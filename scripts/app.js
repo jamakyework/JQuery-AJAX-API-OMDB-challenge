@@ -3,7 +3,7 @@ console.log("javascript is here!!!");
 $(document).ready(function(){
 console.log("jquery is here");
 
-//begin
+//begin click function
 $(document).on("click", "#clickMe",function(){
  var movieTitle = $("#title").val();
  console.log("Movie Title:", movieTitle);
@@ -11,6 +11,7 @@ $(document).on("click", "#clickMe",function(){
 console.log("Year:", movieYear);
 var movieURL= "http://www.omdbapi.com/?s=" + movieTitle + movieYear;
 console.log("Movie URL: ", movieURL);
+//begin ajax
 $.ajax({
   url: movieURL,
   dataType: "JSON",
@@ -25,13 +26,15 @@ $.ajax({
     }
   }
 });
-});
-});
+});//end ajax
+});// end click function
 
+//begin display
 var displayOnDOM = function(display){
   $("#showMe").empty();
   for( var i = 0 ; i < display.length; i++ ){
     $( "#showMe").append( "<p><b>" + display[ i ].Title + "</b> (" + display[ i ].Year + ")</p>");
     $( "#showMe").append( "<img src=" + display[ i ].Poster +  ">");
 }
+//end display
 };
