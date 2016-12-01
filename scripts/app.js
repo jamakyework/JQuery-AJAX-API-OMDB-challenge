@@ -5,10 +5,11 @@ console.log("jquery is here");
 
 //begin
 $(document).on("click", "#clickMe",function(){
- var movieTitle = $('#title').val();
+ var movieTitle = $("#title").val();
  console.log("Movie Title:", movieTitle);
-
-var movieURL= "http://www.omdbapi.com/?s=" +movieTitle;
+ var movieYear = $("#year").val();
+console.log("Year:", movieYear);
+var movieURL= "http://www.omdbapi.com/?s=" + movieTitle + movieYear;
 console.log("Movie URL: ", movieURL);
 $.ajax({
   url: movieURL,
